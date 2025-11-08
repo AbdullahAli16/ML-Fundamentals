@@ -23,6 +23,5 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Files
 # Practice files
 **/prac.py
