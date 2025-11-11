@@ -55,4 +55,67 @@ dataset.interpolate(method="linear",axis=0,inplace=True)
 print(f"After interpolation the dataset is: \n{dataset}")
 # Do check out the other methods too like "polynomial","time" etc 
 
+# Sorting the data
+
+# sort_values --> Sorts the rows in a column in ascending/descending order
+dataset.sort_values(by=["Bonus %"],ascending=True, inplace=True)
+print(f"The dataset now is: \n{dataset}")
+""" If you are sorting more than one columns at a time, you need to pass a separate ascending
+    value for each column """ 
+    
+# Grouping the data
+
+# groupby --> Creates groups based on the unique values in the specified column
+grouped=dataset.groupby("Team")["Salary"].sum()
+print(f"This shows that the employees working in a specific team are taking up how much salary in total: \n{grouped}")
+# For multiple columns
+grouped=dataset.groupby(["Team","First Name"])["Salary"].sum()
+print(f"This shows that the employees working in a specific team and have specific names are taking up how much salary in total: \n{grouped}")
+
+""" Some common aggregation functions are:
+    1- sum() -> Returns the total sum of all the values
+    2- mean() -> Returns average of the values
+    3- count() -> Returns count of NaN values
+    4- min() -> Returns the minimum value
+    5- max() -> Returns the maximum value
+    6- std() -> Returns standard deviation """
+    
+# Merging and Joining the data
+
+# merge() --> Combines two DataFrames based on one or more common columns (like SQL joins)
+
+dept_data = {
+    "Team": ["Finance", "Engineering", "HR", "Marketing"],
+    "Manager": ["Alice", "Bob", "Carol", "David"]
+}
+
+departments = pd.DataFrame(dept_data)
+print(f"Departments DataFrame is: \n{departments}")
+
+merged = pd.merge(dataset, departments, on="Team", how="left")
+print(f"This shows that every employee is now assigned to their respective manager based on team:\n{merged}")
+
+""" Common 'how' options for merging:
+    1- inner  -> Keeps only rows that exist in both DataFrames
+    2- left   -> Keeps all rows from the left DataFrame, adds matches from the right
+    3- right  -> Keeps all rows from the right DataFrame, adds matches from the left
+    4- outer  -> Keeps all rows from both, fills missing with NaN
+"""
+
+# join() --> Combines two DataFrames based on their index instead of column
+
+bonus_data = pd.DataFrame({
+    "First Name": ["John", "Jane", "Emily"],
+    "Bonus Points": [120, 150, 100]
+}).set_index("First Name")
+
+print(f"Bonus DataFrame currently is: \n{bonus_data}")
+
+joined = dataset.join(bonus_data, on="First Name", how="left")
+print(f"This shows that the employees now have their bonus points joined by their first names:\n{joined}")
+
+""" Difference between merge() and join():
+    merge() -> Uses column(s) for combining
+    join()  -> Uses index for combining
+"""
 
