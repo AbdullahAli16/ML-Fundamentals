@@ -11,7 +11,7 @@ extensive output. Review the code before execution to understand what each secti
 import pandas as pd
 
 # Encoding is the process of converting text into a format that computers can store or read
-file = pd.read_csv(r"C:\Users\PMYLS\Desktop\Machine Learning\Datasets\employees.csv", encoding="latin1")
+file = pd.read_csv(r"../Datasets/employees.csv", encoding="latin1")
 print(file)
 
 # Note: If you encounter issues while reading the file, use "utf-8" or "latin1" whichever works for you

@@ -1,8 +1,9 @@
 # Data Modification
 
 import pandas as pd
-file=pd.read_csv(r"C:\Users\PMYLS\Desktop\Machine Learning\Datasets\employees.csv", encoding="latin1")
+file=pd.read_csv(r"../Datasets/employees.csv", encoding="latin1")
 dataset=file.head(10)
+dataset2=file.tail(10)
 print(f"Dataset currently is: \n{dataset}")
 
 # Adding a new column in the dataset
@@ -82,15 +83,11 @@ print(f"This shows that the employees working in a specific team and have specif
     
 # Merging and Joining the data
 
-# merge() --> Combines two DataFrames based on one or more common columns (like SQL joins)
-
-dept_data = {
+# merge --> Combines two DataFrames based on one or more common columns (like SQL joins)
+departments = pd.DataFrame({
     "Team": ["Finance", "Engineering", "HR", "Marketing"],
     "Manager": ["Alice", "Bob", "Carol", "David"]
-}
-
-departments = pd.DataFrame(dept_data)
-print(f"Departments DataFrame is: \n{departments}")
+})
 
 merged = pd.merge(dataset, departments, on="Team", how="left")
 print(f"This shows that every employee is now assigned to their respective manager based on team:\n{merged}")
@@ -102,14 +99,10 @@ print(f"This shows that every employee is now assigned to their respective manag
     4- outer  -> Keeps all rows from both, fills missing with NaN
 """
 
-# join() --> Combines two DataFrames based on their index instead of column
-
+# join --> Combines two DataFrames based on their index instead of column
 bonus_data = pd.DataFrame({
     "First Name": ["John", "Jane", "Emily"],
-    "Bonus Points": [120, 150, 100]
-}).set_index("First Name")
-
-print(f"Bonus DataFrame currently is: \n{bonus_data}")
+    "Bonus Points": [120, 150, 100]}).set_index("First Name")
 
 joined = dataset.join(bonus_data, on="First Name", how="left")
 print(f"This shows that the employees now have their bonus points joined by their first names:\n{joined}")
@@ -118,4 +111,7 @@ print(f"This shows that the employees now have their bonus points joined by thei
     merge() -> Uses column(s) for combining
     join()  -> Uses index for combining
 """
+
+# concat --> Combines dataframes vertically or horizontally
+print(f"Concatenation of two datasets is: \n{pd.concat([dataset,dataset2], axis=0, ignore_index=True)}")
 
