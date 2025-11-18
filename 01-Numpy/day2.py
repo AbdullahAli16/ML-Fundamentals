@@ -1,5 +1,3 @@
-
-
 # Array properties and Operations
 
 import numpy as np
@@ -36,7 +34,6 @@ Most Common NumPy Data Types (practically used)
 
 If you do not specify a data-type using dtype, NumPy will automatically pick one for you — usually
 float64 for decimals and int64 for integers.
-
 """
 
 # dtype --> Returns the data type of an array
