@@ -1,65 +1,66 @@
 # Module 01: NumPy
 
-NumPy (Numerical Python) is the foundational library for numerical computing in Python. Built in C, it provides fast array operations and mathematical functions essential for Machine Learning.
+NumPy is the core numerical computing library in Python. It provides fast, vectorized operations and forms the foundation of Pandas, SciPy, and most ML frameworks.
 
-## 📋 Topics Covered
+## Topics Covered
 
-### Array Creation & Initialization
-- Creating arrays manually and from ranges
-- Special array functions: `arange()`, `linspace()`, `logspace()`
-- Generating zeros, ones, and filled arrays
-- Identity matrices and empty arrays
-- Random number generation (uniform, normal distribution, integers)
+### Array Creation and Initialization
+- Manual and range-based creation  
+- `arange()`, `linspace()`, `logspace()`  
+- `zeros()`, `ones()`, `full()`, `eye()`, `empty()`  
+- Random generation (uniform, normal, integers)
 
-### Array Properties & Data Types
-- Shape, size, and dimensions of arrays
-- Data types (`int32`, `int64`, `float32`, `float64`, `bool_`, `complex128`)
-- Type casting with `astype()`
-- Understanding type priorities (int < float < string)
+### Array Properties and Data Types
+- Shape, size, dimensions  
+- NumPy numeric and boolean dtypes  
+- Casting with `astype()`  
+- Type promotion rules
 
-### Arithmetic & Aggregation Operations
-- Element-wise operations (+, -, *, /, **)
-- Aggregation functions: `sum()`, `mean()`, `min()`, `max()`, `std()`, `var()`
+### Arithmetic and Aggregation
+- Element-wise mathematical operations  
+- Aggregation functions: `sum`, `mean`, `min`, `max`, `std`, `var`
 
-### Indexing & Slicing
-- 1D and 2D array indexing (positive and negative)
-- Slicing with start, end, and step
-- Fancy indexing (selecting multiple elements)
+### Indexing and Slicing
+- 1D and 2D indexing  
+- Slicing with custom step  
+- Fancy indexing  
 - Boolean masking for conditional filtering
 
 ### Array Manipulation
-- **Reshaping**: `reshape()` - converting between dimensions (view)
-- **Flattening**: `ravel()` (view) vs `flatten()` (copy)
-- **Modifying**: `insert()`, `append()`, `delete()`
-- **Combining**: `concatenate()`, `stack()`, `hstack()`, `vstack()`, `dstack()`
-- **Splitting**: `split()`, `hsplit()`, `vsplit()`, `dsplit()`
+- Reshaping (`reshape`)  
+- Flattening (`ravel` vs `flatten`)  
+- Structural modification: `insert`, `append`, `delete`  
+- Combining arrays: `concatenate`, `stack`, `hstack`, `vstack`, `dstack`  
+- Splitting: `split`, `hsplit`, `vsplit`, `dsplit`
 
 ### Advanced Concepts
-- **Broadcasting**: Operations on arrays of different shapes
-- **Vectorization**: Applying operations without loops
-- **Handling special values**: `nan`, `inf`, `-inf`
-- Functions: `isnan()`, `isinf()`, `nan_to_num()`
+- Broadcasting rules  
+- Vectorization (loop-free operations)  
+- Handling special values (`nan`, `inf`, `-inf`)  
+- Functions: `isnan`, `isinf`, `nan_to_num`
 
-## 📁 Daily Breakdown
+## Notebook Breakdown
 
-- **day1.py** - NumPy basics, array creation methods, special functions (`arange`, `linspace`, `logspace`, `zeros`, `ones`, `full`, `eye`, `empty`), random number generation
-- **day2.py** - Array properties (`shape`, `size`, `ndim`, `dtype`), type casting, arithmetic operations, aggregation functions
-- **day3.py** - Indexing (1D & 2D), slicing techniques, fancy indexing, boolean masking, reshaping arrays, `ravel()` vs `flatten()`
-- **day4.py** - Array modification methods (file contains code for insert, append, concatenate, delete, stack operations, split operations)
-- **day5.py** - Broadcasting rules, vectorization, handling missing/special values (`nan`, `inf`)
+- **01_array_creation_initialization.ipynb**  
+  Covers array creation, special constructors, ranges, and random sampling.
 
-## 🔑 Key Takeaways
+- **02_properties_dtypes_operations.ipynb**  
+  Discusses array properties, data types, type casting, arithmetic, and aggregations.
 
-- **Views vs Copies**: `reshape()` and `ravel()` create views (modify original), while `flatten()` creates a copy
-- **Broadcasting**: NumPy automatically expands arrays of different shapes when performing operations
-- **Vectorization**: Eliminates the need for Python loops, making code faster and more efficient
-- **Data Type Hierarchy**: int < float < string (changes affect entire array)
-- **Memory Efficiency**: NumPy arrays are faster and more memory-efficient than Python lists
+- **03_indexing_slicing_reshaping.ipynb**  
+  Covers indexing (1D/2D), slicing, fancy indexing, masking, reshaping, flattening.
 
-## 💡 Why NumPy Matters for ML
+- **04_array_modification.ipynb**  
+  Focuses on modification and combination operations (insert, append, concatenate, delete, stacking, splitting).
 
-NumPy is the backbone of ML libraries (Pandas, Scikit-learn, TensorFlow). Understanding array manipulation, broadcasting, and vectorization is crucial for:
-- Efficient data preprocessing
-- Matrix operations in neural networks
-- Feature engineering and transformations
-- Mathematical computations in ML algorithms
+- **05_broadcasting_vectorization_missing_values.ipynb**  
+  Covers broadcasting rules, vectorization, and handling of missing or special values.
+
+## Key Takeaways
+- `reshape` and `ravel` return views; `flatten` returns a copy.  
+- Broadcasting enables arithmetic across compatible shapes.  
+- Vectorization is significantly faster than Python loops.  
+- NumPy arrays enforce efficient dtypes and are memory-efficient versus lists.
+
+## Why NumPy Matters for Machine Learning
+NumPy underpins data preprocessing, matrix algebra, feature engineering, and the computational core of modern ML libraries. Mastery of NumPy is mandatory before moving into Pandas, Scikit-Learn, or deep learning frameworks.
